@@ -1,56 +1,105 @@
 body {
   font-size: 16px;
 }
+
 #formulaire {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
-.col-2{
-  float: left;
-  width: 20%;
+
+#questionnaire {
+  color: blue;
+  justify-content:;
+  flex: 2;
   text-align: center;
-  margin-bottom: 15px;
+  margin-right: 2rem;
 }
-.col-3{
-  float: left;
-  width: 25%;
+
+#form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start
+  text-align:center;
+}
+
+.champ {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   text-align: center;
-  margin-bottom: 15px;
 }
-.col-4{
-  float: left;
-  width: 33%;
-  text-align: center;
-  margin-bottom: 15px;
+
+.champ_lab {
+  flex: 1;
 }
-.col-10{
-  float: left;
-  width: 80%;
-  text-align: center;
-  margin-bottom: 15px;
-  padding: 0 10px;
+
+#imput {
+  flex: 2;
 }
-#students > thead > tr > th{
-  width: 15%;
+
+#students {
+  color: green;   /*flex: 1;*/
 }
-#students > thead > tr > th.address {
-  width: 40%;
+
+#students > table > tr > td {
+  display: flex;
+  align-items: flex-start;
+ 
+}
+
+/*#students > thead > tr > th.address {
+width: 40%;
 }
 #students th[data-sort] {
-  cursor: pointer;
+cursor: pointer;
 }
-#toolbar, #header{
+.col-2{
+float: left;
+width: 20%;
+text-align: center;
+margin-bottom: 15px;
+}*/
+
+/*.col-3{
+float: left;
+width: 25%;
+text-align: center;
+margin-bottom: 15px;
+}
+.col-4{
+float: left;
+width: 33%;
+text-align: center;
+margin-bottom: 15px;
+}
+.col-10{
+float: left;
+width: 80%;
+text-align: center;
+margin-bottom: 15px;
+padding: 0 10px;
+}*/
+#toolbar,
+#header {
   height: 40px;
 }
-#toolbar *{
+
+#toolbar * {
   vertical-align: middle;
 }
-input {padding: 5px; margin: 5px;}
+
+input {
+  padding: 5px;
+  margin: 5px;
+}
+
 .btn-danger {
   background-color: red;
   color: white;
 }
-.btn-primary {
+
+.btn_primary {
   background-color: #367ac3;
   color: white;
 }
