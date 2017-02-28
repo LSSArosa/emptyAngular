@@ -1,44 +1,130 @@
-<div id="formulaire">
-	<div id="questionnaire">
-		<h3>Questionnaire</h3>
-		<form id="add-student" name="studentForm" ng-submit="foo()" novalidate>
-			<div class="champ">
-				<label class="champ_lab" for="firstname">Prénom : </label>
-				<input id="firstname" name="firstname" ng-model="$ctrl.firstname" ng-pattern="$ctrl.controlName" placeholder="First Name" ng-required="true">
-				<div ng-show="studentForm.$submitted || studentForm.firstname.$touched">
-					<div ng-show="studentForm.firstname.$error.required">Tell us your name.</div>
+
+<div id="formulaire" class="container">
+	<h2>Mon Magnifiiiique formulaire</h2>
+	<div id="questionnaire" class="row">
+		<form id="add-student" class="form-horizontal" name="studentForm" ng-model="$ctrl.studentForm" >
+			<fieldset>
+				<!-- Form Name -->
+				<legend>Questionnaire</legend>
+				<!-- Text input-->
+				<div class="form-group col-md-6">
+					<label class="col-md-4 control-label" for="firstname">Prénom : </label>
+					<div class="col-md-4">
+						<input id="firstname" name="firstname" ng-model="$ctrl.firstname" ng-pattern="$ctrl.controlName" placeholder="First Name" ng-required="true">
+						<span class="help-block">help</span>
+					</div>
+					<!-- 					<div ng-show="studentForm.$submitted || studentForm.firstname.$touched">
+						<div ng-show="studentForm.firstname.$error.required">Tell us your name.</div>
+					</div> -->
+					
 				</div>
-				
-			</div>
-			<div class="champ">
-				<label class="champ_lab" for="lastname">NOM : </label>
-				<input id="lastname" name="lastname" ng-model="$ctrl.lastname" ng-pattern="$ctrl.controlName" ng-required="true">
-			</div>
-			<div class="champ">
-				<label class="champ_lab" for="Age">Age</label>
-				<input id="age" name="age" ng-pattern="$ctrl.controlAge" ng-required="true">
-			</div>
-			<div class="champ">
-				<label class="champ_lab" for="address">Adresse</label>
-				<input id="address" class="address" name="address" ng-pattern="$ctrl.controlAdress" ng-required="true">
-			</div>
-			<div class="champ">
-				<label class="champ_lab" for="email">Email</label>
-				<input id="email" name="email" ng-required="true">
-			</div>
-			<button class="btn_primary" ng-click='studentForm.$valid'>Ajoutez</button>
+				<div class="form-group col-md-6">
+					<label class="col-md-4 control-label" for="lastname">NOM : </label>
+					<div class="col-md-4">
+						<input id="lastname" name="lastname" ng-model="$ctrl.lastname" ng-pattern="$ctrl.controlName" ng-required="true">
+						<span class="help-block">help</span>
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<label class="col-md-4 control-label" for="Age">Age</label>
+					<div class="col-md-4">
+						<input id="age" name="age" ng-model="$ctrl.age" ng-pattern="$ctrl.controlAge" ng-required="true">
+						<span class="help-block">help</span>
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<label class="col-md-4 control-label" for="address">Adresse</label>
+					<div class="col-md-4">
+						<input id="address" class="address" name="address" ng-model="$ctrl.address" ng-pattern="$ctrl.controlAddress" ng-required="true">
+						<span class="help-block">help</span>
+					</div>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-4 control-label" for="email">Email</label>
+					<div class="col-md-4">
+						<input id="email" name="email" ng-model="$ctrl.email" ng-required="true">
+						<span class="help-block">help</span>
+					</div>
+				</div>
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="singlebutton"></label>
+					<div class="col-md-4">
+						<input type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary" ng-click="$ctrl.addRow()"/>
+					</div>
+				</div>
+			</fieldset>
 		</form>
 	</div>
-	<div id="students">
-		<h3>Vos données</h3>
-		<table >
-			<tr>
-				<td>{{studentForm.firstname.$valid}}</td>
-				<td>{{studentForm.lastname.$valid}}</td>
-				<td>{{studentForm.age.$valid}}</td>
-				<td>{{studentForm.address.$valid}}</td>
-				<td>{{studentForm.email.$valid}}</td>
-			</tr>
-		</table>
+	<div id="data" class="row">
+		<form id="data-student" class="form-horizontal" name="dataForm">
+			<fieldset>
+				<!-- Form Name -->
+				<legend>Vos données</legend>
+				<!-- Text input-->
+				<table >
+					<thead>
+						<tr>
+							<th>first name</th>
+							<th>last name</th>
+							<th>Age</th>
+							<th>address</th>
+							<th>email</th>
+						</tr>
+					</thead>
+					<tbody ng-repeat="row in $ctrl.rowCollection"> 
+						<tr> 
+							<td>{{row.firstname}}</td>
+							<td>{{row.lastname}}</td>
+							<td>{{row.age}}</td>
+							<td>{{row.address}}</td>
+							<td>{{row.email}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+		<!-- <div class="container">
+				<div class="row">
+								<h2>Mon Magnifiiiique formulaire</h2>
+								<form class="form-horizontal">
+			<fieldset> -->
+				<!-- Form Name -->
+				<!-- 				<legend>Questionnaire</legend> -->
+				<!-- Text input-->
+				<!-- 				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Text Input</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+						<span class="help-block">help</span>
+					</div>
+				</div> -->
+				<!-- Text input-->
+				<!-- 				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Text Input</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+						<span class="help-block">help</span>
+					</div>
+				</div> -->
+				<!-- Text input-->
+				<!-- 				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Text Input</label>
+					<div class="col-md-4">
+						<input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+						<span class="help-block">help</span>
+					</div>
+				</div> -->
+				<!-- Button -->
+				<!-- 				<div class="form-group">
+					<label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+					<div class="col-md-4">
+						<button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
 	</div>
-</div>
+</div> -->

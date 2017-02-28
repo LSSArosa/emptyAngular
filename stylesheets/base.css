@@ -1,7 +1,16 @@
 body {
-  font-size: 16px;
+  /*margin-top: 0px;
+  padding-top: 0px;*/
+  /*font-size: 12px;*/
+  font-size: 0.9rem;
 }
+h1, h2 {
+  margin-top: 2px;
+}
+#questionnaire {
+  color: blue;
 
+/*
 #formulaire {
   display: flex;
   flex-direction: column;
@@ -39,14 +48,14 @@ body {
 }
 
 #students {
-  color: green;   /*flex: 1;*/
+  color: green;  
 }
 
 #students > table > tr > td {
   display: flex;
   align-items: flex-start;
  
-}
+}*/
 
 /*#students > thead > tr > th.address {
 width: 40%;
