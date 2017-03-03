@@ -19,11 +19,12 @@ angular.module("monFormulaire").component("monFormulaire", {
 				"email": this.email
 			};
 			this.rowCollection.push(newRow);
-			this.studentForm.setPristine();
+		
+		console.log('')
 		}
-		// this.reset = () => {
-  //   		this.studentForm = undefined
-  // 		}
+	 	this.reset = () => {
+    		this.studentForm = {}
+   		}
 
 	}
 });
