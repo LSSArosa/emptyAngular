@@ -1,78 +1,80 @@
 <div id="formulaire" class="container">
 	<h2>Mon Magnifiiiique formulaire</h2>
 	<div id="questionnaire" class="row">
-		<form id="add-student" class="form-horizontal" name="studentForm" ng-model="$ctrl.studentForm" >
+		<form id="add-student" class="form-horizontal" name="studentForm" ng-model="$ctrl.studentForm" novalidate="true" >
 			<fieldset>
 				<!-- Form Name -->
 				<legend>Questionnaire</legend>
 				<!-- Text input-->
+				<!-- ligne 1     6 + 6 -->
 				<div class="form-group col-xs-6">
 					<label class="col-xs-4 control-label" for="firstname">Prénom : </label>
 					<div class="col-xs-8">
-						<input id="firstname" name="firstname" ng-model="$ctrl.firstname" ng-pattern="$ctrl.controlName" 
+						<input id="firstname" name="firstname" ng-model="$ctrl.firstname" ng-pattern="$ctrl.controlName"
 						placeholder="Prénom" ng-required="true">
-						<!-- <span class="help-block">help</span> -->
-					</div>
-					<div class="col-xs-6" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
-						<div ng-show="studentForm.firstname.$error.required">Tell us your name.
-						</div>
+						<!-- <div ng-messages="studentForm.firstname.$error" ng-messages-include="erreurs.html" class="help-block"></div>  -->
+						<div ng-show="studentForm.fistname.$error.invalid && studentForm.firstname.$touched || studentForm.firstname.$error.required && studentForm.firstname.$touched "
+						 class="help-block">Prénom incomplet</div> 
+						
 					</div>
 				</div>
 				<div class="form-group col-xs-6">
 					<label class="col-xs-4 control-label" for="lastname">NOM : </label>
 					<div class="col-xs-8">
-						<input id="lastname" name="lastname" ng-model="$ctrl.lastname" ng-pattern="$ctrl.controlName" 
+						<input id="lastname" name="lastname" ng-model="$ctrl.lastname" ng-pattern="$ctrl.controlName"
 						placeholder="Nom" ng-required="true">
-					</div>
-					<div class="col-xs-6" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
-						<div ng-show="studentForm.firstname.$error.required">Tell us your Last Name.
-						</div>
+						<div ng-show="studentForm.lastname.$error.invalid && studentForm.lastname.$touched || studentForm.lastname.$error.required && studentForm.lastname.$touched"
+						 class="help-block">Majuscule en début obligatoire</div> 
 					</div>
 				</div>
-				<div class="form-group col-xs-2">
-					<label class="col-xs-6 control-label" for="Age">Age </label>
-					<div class="col-xs-6">
-						<input id="age" name="age" ng-model="$ctrl.age" ng-pattern="$ctrl.controlAge"  
-						placeholder="Age" ng-required="true">
-					</div>
-					<div class="col-xs-6" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
-						<div ng-show="studentForm.firstname.$error.required">Tell us your Age.
+				<!-- ligne 2 -->
+				<div class="form-group col-xs-12">
+					<div class="form-group col-xs-3">
+						<label class="col-xs-6 control-label" for="Age">Age </label>
+						<div class="col-xs-6">
+							<input id="age" type=number min="1" max="130"
+							name="age" ng-model="$ctrl.age" ng-pattern="$ctrl.controlAge"
+							placeholder="18" ng-required="true">
+							<div ng-show="studentForm.age.$error.invalid &&studentForm.age.$touched || studentForm.age.$error.required &&studentForm.age.$touched "
+						 class="help-block">Age obligatoire</div> 
 						</div>
-					</div>
-				</div>
-				<div class="form-group col-xs-10">
-					<label class="col-xs-2 control-label" for="address">Adresse</label>
-					<div class="col-xs-10">
-						<input id="address" class="col-xs-12" name="address" ng-model="$ctrl.address" ng-pattern="$ctrl.controlAddress" 
-						placeholder="190 rue Lecqoc 33000 Bordeaux" ng-required="true">
 						
 					</div>
-					<div class="col-xs-12" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
-						<div ng-show="studentForm.firstname.$error.required">Tell us your Adresse.
+					<div class="form-group col-xs-9">
+						<label class="col-xs-2 control-label" for="email">Email</label>
+						<div class="col-xs-10">
+							<input id="email" class="col-xs-12" name="email" ng-model="$ctrl.email" ng-required="true"
+							type=email ng-pattern="/\b[\w.%+-]+@[a-zA-Z\d.-]+\.[A-Za-z]{2,4}\b/">
+							<div ng-show="studentForm.email.$error.invalid &&studentForm.email.$touched || studentForm.email.$error.required &&studentForm.email.$touched "
+						 class="help-block">Format email non valide</div> 
 						</div>
 					</div>
 				</div>
+				<!-- ligne 3 -->
 				<div class="form-group col-xs-12">
-					<label class="col-xs-2 control-label" for="email">Email</label>
-					<div class="col-xs-6">
-						<input id="email" name="email" ng-model="$ctrl.email" ng-required="true" 
-								ng-pattern="/\b[\w.%+-]+@[a-zA-Z\d.-]+\.[A-Za-z]{2,4}\b/">
+					<label class="col-xs-2 control-label" for="address">Adresse</label>
+					<div class="col-xs-10">
+						<input id="address" class="col-xs-12" name="address" ng-model="$ctrl.address" ng-pattern="$ctrl.controlAddress"
+						placeholder="190 rue Lecqoc 33000 Bordeaux" ng-required="true">
+						<div ng-show="studentForm.address.$error.invalid &&studentForm.address.$touched || studentForm.address.$error.required &&studentForm.address.$touched "
+						 class="help-block">format incomplet ou invalide</div> 
 					</div>
+				</div>
+				<!-- ligne 4 -->
+				<div class="form-group col-xs-12">
 					<!-- Button -->
-					<div class="form-group">
-						<label class="col-xs-4 control-label" for="singlebutton"></label>
-						<div class="col-xs-4">
-							<input type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary"
-							ng-click="$ctrl.addRow()"
-							ng-disabled="studentForm.$invalid" />
+					<label class="col-xs-4 control-label" for="singlebutton"></label>
+					<div class="col-xs-4">
+						<input type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary"
+						ng-click="$ctrl.addRow()"
+						ng-disabled="studentForm.$invalid" />
+						<div ng-show="studentForm.$invalid && studentForm.firstname.$touched" class="help-block">Formulaire incomplet</div>
 						<!-- 	ng-disabled= 'studentForm.name.$dirty  studentForm.lastname.$invalid'  -->
 						<!-- 	studentForm.email.$dirty || studentForm.address.$invalid" -->
-							
-						</div>
-						<label class="col-xs-4 control-label" for="singlebutton"></label>
-						<div class="col-xs-4">
-							<input type="reset" id="singlebutton" name="singlebutton" class="btn btn-danger" ng-click="$ctrl.reset()"/>
-						</div>
+					</div>
+					<label class="col-xs-4 control-label" for="singlebutton"></label>
+					<div class="col-xs-4">
+						<input type="reset" id="singlebutton" name="singlebutton" class="btn btn-danger" ng-click="$ctrl.reset()"/>
 					</div>
 				</div>
 				

@@ -8,6 +8,7 @@ angular.module("monFormulaire").component("monFormulaire", {
 		this.controlAge = /^\d{1,3}/;
 		this.controlAddress = /[\b0-9]{0,3} [a-zA-Z ,]{5,30}\b[0-9]{5}\b \b[A-Z][a-z\-]{1,50}/;
 		this.controlEmail;
+		console.log('studentForm', studentForm);
 
 		this.rowCollection = [];
 		let lastId = this.rowCollection.length;
@@ -26,6 +27,7 @@ angular.module("monFormulaire").component("monFormulaire", {
 		}
 	 	this.reset = () => {
     		this.studentForm = {}
+    		this.studentForm.email.$pristine = "true";
    		}
 
 	}

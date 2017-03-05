@@ -14,6 +14,34 @@ h1, h2 {
 h1 {
   font-size: 1.5rem;
 }
+h1 span {
+  font-size: 0.7rem;
+}
+
+/*input.placeholder {
+  font-size: 0.7rem;
+}*/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+  font-size: 0.7rem;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
+  font-size: 0.7rem;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: pink;
+  font-size: 0.7rem;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: pink;
+  font-size: 0.7rem;
+}
+.help-block {
+  color: red;
+  font-size: 0.8rem;
+}
+
 th {
   padding-bottom:  0px;
 }
