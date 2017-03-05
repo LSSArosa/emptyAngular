@@ -10,8 +10,10 @@ angular.module("monFormulaire").component("monFormulaire", {
 		this.controlEmail;
 
 		this.rowCollection = [];
+		let lastId = this.rowCollection.length;
 		this.addRow =() =>{
 			let newRow = {
+				"id": lastId,
 				"firstname": this.firstname,
 				"lastname": this.lastname,
 				"age": this.age,
@@ -19,8 +21,8 @@ angular.module("monFormulaire").component("monFormulaire", {
 				"email": this.email
 			};
 			this.rowCollection.push(newRow);
-		
-		console.log('')
+			lastId ++;	
+			console.log('newRow', newRow);
 		}
 	 	this.reset = () => {
     		this.studentForm = {}

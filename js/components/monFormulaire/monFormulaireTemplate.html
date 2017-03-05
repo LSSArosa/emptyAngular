@@ -8,8 +8,9 @@
 				<!-- Text input-->
 				<div class="form-group col-xs-6">
 					<label class="col-xs-4 control-label" for="firstname">Prénom : </label>
-					<div class="col-xs-6">
-						<input id="firstname" name="firstname" ng-model="$ctrl.firstname" ng-pattern="$ctrl.controlName" placeholder="First Name" ng-required="true">
+					<div class="col-xs-8">
+						<input id="firstname" name="firstname" ng-model="$ctrl.firstname" ng-pattern="$ctrl.controlName" 
+						placeholder="Prénom" ng-required="true">
 						<!-- <span class="help-block">help</span> -->
 					</div>
 					<div class="col-xs-6" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
@@ -19,52 +20,54 @@
 				</div>
 				<div class="form-group col-xs-6">
 					<label class="col-xs-4 control-label" for="lastname">NOM : </label>
-					<div class="col-xs-6">
-						<input id="lastname" name="lastname" ng-model="$ctrl.lastname" ng-pattern="$ctrl.controlName" ng-required="true">
+					<div class="col-xs-8">
+						<input id="lastname" name="lastname" ng-model="$ctrl.lastname" ng-pattern="$ctrl.controlName" 
+						placeholder="Nom" ng-required="true">
 					</div>
 					<div class="col-xs-6" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
 						<div ng-show="studentForm.firstname.$error.required">Tell us your Last Name.
 						</div>
 					</div>
 				</div>
-				<div class="form-group col-xs-6">
-					<label class="col-xs-4 control-label" for="Age">Age</label>
+				<div class="form-group col-xs-2">
+					<label class="col-xs-6 control-label" for="Age">Age </label>
 					<div class="col-xs-6">
-						<input id="age" name="age" ng-model="$ctrl.age" ng-pattern="$ctrl.controlAge" ng-required="true">
+						<input id="age" name="age" ng-model="$ctrl.age" ng-pattern="$ctrl.controlAge"  
+						placeholder="Age" ng-required="true">
 					</div>
 					<div class="col-xs-6" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
 						<div ng-show="studentForm.firstname.$error.required">Tell us your Age.
 						</div>
 					</div>
 				</div>
-				<div class="form-group col-xs-6">
-					<label class="col-xs-4 control-label" for="address">Adresse</label>
-					<div class="col-xs-6">
-						<input id="address" class="address" name="address" ng-model="$ctrl.address" ng-pattern="$ctrl.controlAddress" ng-required="true">
+				<div class="form-group col-xs-10">
+					<label class="col-xs-2 control-label" for="address">Adresse</label>
+					<div class="col-xs-10">
+						<input id="address" class="col-xs-12" name="address" ng-model="$ctrl.address" ng-pattern="$ctrl.controlAddress" 
+						placeholder="190 rue Lecqoc 33000 Bordeaux" ng-required="true">
 						
 					</div>
-					<div class="col-xs-6" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
+					<div class="col-xs-12" ng-show="studentForm.$submitted || studentForm.firstname.$touched">
 						<div ng-show="studentForm.firstname.$error.required">Tell us your Adresse.
 						</div>
 					</div>
 				</div>
 				<div class="form-group col-xs-12">
-					<label class="col-xs-4 control-label" for="email">Email</label>
-					<div class="col-xs-4">
-						<input id="email" name="email" ng-model="$ctrl.email" ng-required="true">
-						<span class="help-block">help</span>
+					<label class="col-xs-2 control-label" for="email">Email</label>
+					<div class="col-xs-6">
+						<input id="email" name="email" ng-model="$ctrl.email" ng-required="true" 
+								ng-pattern="/\b[\w.%+-]+@[a-zA-Z\d.-]+\.[A-Za-z]{2,4}\b/">
 					</div>
 					<!-- Button -->
 					<div class="form-group">
 						<label class="col-xs-4 control-label" for="singlebutton"></label>
 						<div class="col-xs-4">
 							<input type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary"
-							 ng-click="$ctrl.addRow()"
-							ng-disabled="studentForm.name.$dirty && studentForm.name.$invalid ||
-  studentForm.email.$dirty && studentForm.email.$invalid"
-
-
-							 />
+							ng-click="$ctrl.addRow()"
+							ng-disabled="studentForm.$invalid" />
+						<!-- 	ng-disabled= 'studentForm.name.$dirty  studentForm.lastname.$invalid'  -->
+						<!-- 	studentForm.email.$dirty || studentForm.address.$invalid" -->
+							
 						</div>
 						<label class="col-xs-4 control-label" for="singlebutton"></label>
 						<div class="col-xs-4">
@@ -85,6 +88,7 @@
 				<table >
 					<thead>
 						<tr>
+							<th>n°</th>
 							<th>first name</th>
 							<th>last name</th>
 							<th>Age</th>
@@ -94,6 +98,7 @@
 					</thead>
 					<tbody ng-repeat="row in $ctrl.rowCollection">
 						<tr>
+							<td>{{row.id}}</td>
 							<td>{{row.firstname}}</td>
 							<td>{{row.lastname}}</td>
 							<td>{{row.age}}</td>
