@@ -13,7 +13,10 @@
 						<input id="firstname" name="firstname" ng-model="$ctrl.firstname" ng-pattern="$ctrl.controlName"
 						placeholder="Prénom" ng-required="true">
 						<!-- <div ng-messages="studentForm.firstname.$error" ng-messages-include="erreurs.html" class="help-block"></div>  -->
-						<div ng-show="studentForm.fistname.$error.invalid && studentForm.firstname.$touched || studentForm.firstname.$error.required && studentForm.firstname.$touched "
+
+<!-- 						<div ng-if=" (!studentForm.fistname.$pristine && (studentForm.fistname.$dirty ||    studentForm.fistname.$invalid)) || (studentForm.fistname.$pristine && studentForm.fistname.$error.required) "
+						 class="help-block">Prénom incomplet</div>  -->	
+						<div ng-show="studentForm.fistname.$error.invalid && studentForm.firstname.$dirty || studentForm.firstname.$error.required && studentForm.firstname.$touched "
 						 class="help-block">Prénom incomplet</div> 
 						
 					</div>
@@ -23,8 +26,8 @@
 					<div class="col-xs-8">
 						<input id="lastname" name="lastname" ng-model="$ctrl.lastname" ng-pattern="$ctrl.controlName"
 						placeholder="Nom" ng-required="true">
-						<div ng-show="studentForm.lastname.$error.invalid && studentForm.lastname.$touched || studentForm.lastname.$error.required && studentForm.lastname.$touched"
-						 class="help-block">Majuscule en début obligatoire</div> 
+						<div ng-show="studentForm.lastname.$error.invalid && studentForm.lastname.$dirty || studentForm.lastname.$error.required && studentForm.lastname.$touched"
+						 class="help-block">Nom erroné</div> 
 					</div>
 				</div>
 				<!-- ligne 2 -->
@@ -67,7 +70,7 @@
 					<div class="col-xs-4">
 						<input type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary"
 						ng-click="$ctrl.addRow()"
-						ng-disabled="studentForm.$invalid" />
+						ng-disabled="studentForm.$invalid || studentForm.$pristine" />
 						<div ng-show="studentForm.$invalid && studentForm.firstname.$touched" class="help-block">Formulaire incomplet</div>
 					</div>
 					<label class="col-xs-4 control-label" for="singlebutton"></label>

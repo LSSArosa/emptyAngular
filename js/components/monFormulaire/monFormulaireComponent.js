@@ -24,19 +24,21 @@ angular.module("monFormulaire").component("monFormulaire", {
 			this.rowCollection.push(newRow);
 			lastId ++;	
 			console.log('newRow', newRow);
-			newRow = {};
-			this.studentForm = {}
-    		this.studentForm.$setPristine();
-    		this.studentForm.$setInvalid();
-    		this.studentForm.$setUntouched();
-    		this.studentForm.$submitted = false;
+
+			// newRow = {};
+			// this.studentForm = {}
+   //  		this.studentForm.$setPristine();
+   //  		this.studentForm.$setInvalid();
+   //  		this.studentForm.$setUntouched();
+   //  		this.studentForm.$submitted = false;
 		}
 	 	this.reset = () => {
-    		this.studentForm = {}
-    		this.studentForm.$setPristine();
-    		this.studentForm.$setInvalid();
-    		this.studentForm.$setUntouched();
-    		this.studentForm.$submitted = false;
+	 		this.studentForm = undefined;
+    		// // this.studentForm = {}
+    		 this.studentForm.$setPristine();
+    		 this.studentForm.$setInvalid();
+    		 this.studentForm.$setUntouched();
+    		// this.studentForm.$submitted = false;
     		// this.help-block.$hide = false;
 
    		}
