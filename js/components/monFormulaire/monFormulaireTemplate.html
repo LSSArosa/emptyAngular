@@ -46,7 +46,7 @@
 							<input id="email" class="col-xs-12" name="email" ng-model="$ctrl.email" ng-required="true"
 							type=email ng-pattern="/\b[\w.%+-]+@[a-zA-Z\d.-]+\.[A-Za-z]{2,4}\b/">
 							<div ng-show="studentForm.email.$error.invalid &&studentForm.email.$touched || studentForm.email.$error.required &&studentForm.email.$touched "
-						 class="help-block">Format email non valide</div> 
+						 	class="help-block">Format email non valide</div> 
 						</div>
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 					<label class="col-xs-2 control-label" for="address">Adresse</label>
 					<div class="col-xs-10">
 						<input id="address" class="col-xs-12" name="address" ng-model="$ctrl.address" ng-pattern="$ctrl.controlAddress"
-						placeholder="190 rue Lecqoc 33000 Bordeaux" ng-required="true">
+						placeholder="190 rue Lecoq 33000 Bordeaux" ng-required="true">
 						<div ng-show="studentForm.address.$error.invalid &&studentForm.address.$touched || studentForm.address.$error.required &&studentForm.address.$touched "
 						 class="help-block">format incomplet ou invalide</div> 
 					</div>
@@ -69,8 +69,6 @@
 						ng-click="$ctrl.addRow()"
 						ng-disabled="studentForm.$invalid" />
 						<div ng-show="studentForm.$invalid && studentForm.firstname.$touched" class="help-block">Formulaire incomplet</div>
-						<!-- 	ng-disabled= 'studentForm.name.$dirty  studentForm.lastname.$invalid'  -->
-						<!-- 	studentForm.email.$dirty || studentForm.address.$invalid" -->
 					</div>
 					<label class="col-xs-4 control-label" for="singlebutton"></label>
 					<div class="col-xs-4">
